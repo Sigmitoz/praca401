@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zmiana koloru napisu i tła</title>
+  <style>
+    #tekst {
+      font-size: 100%;
+      font-weight: bold;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .slider-container {
+      margin-bottom: 10px;
+    }
+    .button-container button {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <label for="textInput">Wpisz swój tekst:</label>
+  <input type="text" id="textInput" placeholder="Tutaj wpisz tekst" />
+  <input type="button" id="guzik" value="Wyświetl" onclick="wys()">
+
+  <hr>
+
+  <div><strong>Kolor napisu:</strong></div>
+  <div class="button-container">
+    <button onclick="setTextColor('red')">Czerwony</button>
+    <button onclick="setTextColor('green')">Zielony</button>
+    <button onclick="setTextColor('blue')">Niebieski</button>
+  </div>
+
+  <div><strong>Kolor tła strony (RGB):</strong></div>
+  <div class="slider-container">
+    <label>R: <input type="range" id="bgR" min="0" max="255" value="255"></label>
+  </div>
+  <div class="slider-container">
+    <label>G: <input type="range" id="bgG" min="0" max="255" value="255"></label>
+  </div>
+  <div class="slider-container">
+    <label>B: <input type="range" id="bgB" min="0" max="255" value="255"></label>
+  </div>
+
+  <div class="slider-container">
+    <label for="fontSize">Rozmiar czcionki: </label>
+    <select id="fontSize" onchange="updateFontSize()">
+      <option value="100%">100%</option>
+      <option value="150%">150%</option>
+      <option value="200%">200%</option>
+    </select>
+  </div>
+
+  <div id="tekst"></div>
+
+  <script>
+    const bgR = document.getElementById("bgR");
+    const bgG = document.getElementById("bgG");
+    const bgB = document.getElementById("bgB");
+
+    const textInput = document.getElementById("textInput");
+    const tekstDiv = document.getElementById("tekst");
+    const fontSizeSelect = document.getElementById("fontSize");
+
+    function setTextColor(color) {
+      tekstDiv.style.color = color;
+    }
+
+    function updateBackgroundColor() {
+      const bgColor = `rgb(${bgR.value}, ${bgG.value}, ${bgB.value})`;
+      document.body.style.backgroundColor = bgColor;
+    }
+
+    function updateFontSize() {
+      tekstDiv.style.fontSize = fontSizeSelect.value;
+    }
+
+    function wys() {
+      tekstDiv.textContent = textInput.value;
+      updateBackgroundColor();
+      updateFontSize();
+    }
+
+    bgR.addEventListener("input", updateBackgroundColor);
+    bgG.addEventListener("input", updateBackgroundColor);
+    bgB.addEventListener("input", updateBackgroundColor);
+  </script>
+</body>
+</html>
