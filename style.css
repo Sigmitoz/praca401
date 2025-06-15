@@ -1,0 +1,93 @@
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body{
+        background-image: url(tlo.jpg);
+        background-size: cover;
+    }
+    
+    body, html {
+      height: 100%;
+      font-family: sans-serif;
+    }
+    header img{
+        width: 50px;
+    }
+
+    header {
+      background-color: #5a189a;
+      border-bottom: 4px solid black;
+      text-align: center;
+      padding: 0.4em;
+      font-size: 3em;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .container {
+      display: flex;
+      height: calc(100vh - 160px); /* navbar + footer */
+    }
+
+    .circle-container {
+      width: 35%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .circle {
+      width: 80%;
+      aspect-ratio: 1;
+      border: 3px solid black;
+      border-radius: 50%;
+      position: relative;
+      background-color: #9d4edd;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+
+    .flower {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 40%;
+      left: 43%;
+      transform: translate(-50%, -50%);
+    }
+
+    .flower img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    main {
+      flex-grow: 1;
+      background-image: url('https://via.placeholder.com/800x600');
+      background-size: cover;
+      background-position: center;
+      
+    }
+
+    footer {
+      height: 80px;
+      background-color: #5a189a;
+      border-top: 3px solid black;
+      text-align: center;
+      padding: 1em;
+    }
+
+.circle img{
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kwiaciarnia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <a href="logowanie.php"><img src="login.png" alt="" style="height: 50px;"></a>
+    <a href="glowna.html"><p>KWIACIARNIA</p></a>
+    <a href="wyszukiwarka.php"><img src="trolley.png" alt="" style="height: 50px;"></a>
+  </header>
+
+  <div class="container">
+    <div class="circle-container">
+      <div class="circle" id="circle">
+      </div>
+    </div>
+
+    <main>
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2025 Kwiaciarnia
+  </footer>
+
+  <script>
+    // Dodaj kwiaty i obracaj je wokół środka
+    const circle = document.getElementById('circle');
+    const flowerCount = 5;
+    const radius = 150;
+
+    const flowers = [];
+
+    const flowerImages = ['lawenda.jpg', 'piwonie.jpg', 'roza_biala.jpg','roza_czerwona.jpg','stokrotka.jpg'];
+
+    for (let i = 0; i < flowerCount; i++) {
+    const flower = document.createElement('div');
+    flower.className = 'flower';
+    const img = document.createElement('img');
+    img.src = flowerImages[i % flowerImages.length];
+    flower.appendChild(img);
+    circle.appendChild(flower);
+    flowers.push(flower);
+    }
+
+    let angle = 0;
+
+    function animate() {
+      angle += 0.01;
+      flowers.forEach((flower, i) => {
+        const a = angle + (i * (2 * Math.PI / flowerCount));
+        const x = Math.cos(a) * radius;
+        const y = Math.sin(a) * radius;
+        flower.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+</body>
+</html>
